@@ -1,5 +1,4 @@
 import plotly.express as px
-import dash
 from dash import html, dcc, Dash
 from dash.dependencies import Input, Output
 import pandas as pd
@@ -42,4 +41,4 @@ def update_histogram(selected_variable):
 
 
 if __name__ == "__main__":
-    app.run_server()
+    app.run_server(debug=True)
