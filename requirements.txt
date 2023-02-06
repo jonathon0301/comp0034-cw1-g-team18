@@ -1,5 +1,7 @@
 pandas
 openpyxl
-dash
+dash~=2.8.1
 dash-bootstrap-components
 pytest
+
+plotly~=5.13.0
