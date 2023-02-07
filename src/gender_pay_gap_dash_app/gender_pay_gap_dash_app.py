@@ -6,11 +6,11 @@ import pandas as pd
 df_visualization = pd.read_csv('data/gender_pay_gap_prepared.csv')
 
 # Plot1: Histogram on DiffMeanHourlyPercent
-fig1 = px.histogram(df_visualization, nbins=50, title="Distribution of DiffMeanHourlyPercent",
+fig1 = px.histogram(df_visualization, nbins=200, title="Distribution of DiffMeanHourlyPercent",
                     x="DiffMeanHourlyPercent")
 
 # Plot2: Histogram on DiffMedianHourlyPercent
-fig2 = px.histogram(df_visualization, nbins=50, title="Distribution of DiffMedianHourlyPercent",
+fig2 = px.histogram(df_visualization, nbins=200, title="Distribution of DiffMedianHourlyPercent",
                     x="DiffMedianHourlyPercent")
 
 app = Dash(__name__)
@@ -30,7 +30,19 @@ app.layout = html.Div([
         ],
         value='DiffMeanHourlyPercent'
     ),
-    dcc.Graph(id='histogram')
+    dcc.Graph(id='histogram'),
+    html.H2(
+        'Box plots of DiffMeanHourlyPercent, DiffMedianBonusPercent and FemaleTopQuartile against Industry'),
+    dcc.Dropdown(
+        id='yaxis_selector',
+        options=[
+            {'label': 'DiffMeanHourlyPercent', 'value': 'DiffMeanHourlyPercent'},
+            {'label': 'DiffMedianBonusPercent', 'value': 'DiffMedianBonusPercent'},
+            {'label': 'FemaleTopQuartile', 'value': 'FemaleTopQuartile'}
+        ],
+        value='FemaleTopQuartile'
+    ),
+    dcc.Graph(id='boxplot')
 ])
 
 
@@ -42,6 +54,14 @@ def update_histogram(selected_variable):
         return fig1
     else:
         return fig2
+
+
+@app.callback(
+    Output('boxplot', 'figure'),
+    [Input('yaxis_selector', 'value')])
+def update_boxplot(yaxis_selector):
+    fig = px.box(df_visualization, x="Industry", y=yaxis_selector)
+    return fig
 
 
 if __name__ == "__main__":
