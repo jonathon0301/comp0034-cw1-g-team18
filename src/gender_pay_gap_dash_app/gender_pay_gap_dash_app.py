@@ -15,6 +15,10 @@ fig2 = px.histogram(df_visualization, nbins=50, title="Distribution of DiffMedia
 
 app = Dash(__name__)
 
+app.css.append_css({
+    "external_url": "/assets/style.css.css"
+})
+
 app.layout = html.Div([
     html.H1("Gender Pay Gap Situations Visualisation Dashboard"),
     html.H2('Distributions of DiffMeanHourlyPercent and DiffMedianHourlyPercent in Histograms'),
