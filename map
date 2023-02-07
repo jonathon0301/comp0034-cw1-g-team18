@@ -10,10 +10,6 @@ df = pd.DataFrame({'Region': ['North East', 'North West', 'Yorkshire and The Hum
                    'Population': [500000, 600000, 700000, 400000, 600000, 800000, 9000000, 1000000, 200000],
                    'Employment Rate': [0.6, 0.7, 0.75, 0.68, 0.65, 0.72, 0.78, 0.73, 0.62]})
 
-# Convert the GDP, population, and employment rate values to integers or floating-point numbers
-df['GDP'] = df['GDP'].astype(int)
-df['Population'] = df['Population'].astype(int)
-df['Employment Rate'] = df['Employment Rate'].astype(float)
 
 # Create the scatter map
 fig = px.scatter_mapbox(df, lat='lat', lon='lon', hover_name='Region',
