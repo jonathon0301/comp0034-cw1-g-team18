@@ -3,7 +3,7 @@ from dash import html, dcc, Dash
 from dash.dependencies import Input, Output
 import pandas as pd
 
-df_visualization = pd.read_csv('../gender_pay_gap_prepared.csv')
+df_visualization = pd.read_csv('data/gender_pay_gap_prepared.csv')
 
 # Plot1: Histogram on DiffMeanHourlyPercent
 fig1 = px.histogram(df_visualization, nbins=50, title="Distribution of DiffMeanHourlyPercent",
