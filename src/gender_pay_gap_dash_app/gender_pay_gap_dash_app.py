@@ -33,15 +33,29 @@ app.layout = html.Div([
     dcc.Graph(id='histogram'),
     html.H2(
         'Box plots of DiffMeanHourlyPercent, DiffMedianBonusPercent and FemaleTopQuartile against Industry'),
-    dcc.Dropdown(
-        id='yaxis_selector',
-        options=[
-            {'label': 'DiffMeanHourlyPercent', 'value': 'DiffMeanHourlyPercent'},
-            {'label': 'DiffMedianBonusPercent', 'value': 'DiffMedianBonusPercent'},
-            {'label': 'FemaleTopQuartile', 'value': 'FemaleTopQuartile'}
-        ],
-        value='FemaleTopQuartile'
-    ),
+    html.Div([
+        html.Label("Select X Axis Variable:"),
+        dcc.Dropdown(
+            id='xaxis_selector',
+            options=[
+                {'label': 'EmployerSizeMedian', 'value': 'EmployerSizeMedian'},
+                {'label': 'Industry', 'value': 'Industry'},
+                {'label': 'Region', 'value': 'UK region'},
+            ],
+            value='UK region'
+        ),
+    ]),
+    html.Div([
+        html.Label("Select Y Axis Variable:"),
+        dcc.Dropdown(
+            id='yaxis_selector',
+            options=[
+                {'label': 'DiffMeanHourlyPercent', 'value': 'DiffMeanHourlyPercent'},
+                {'label': 'DiffMedianBonusPercent', 'value': 'DiffMedianBonusPercent'},
+                {'label': 'FemaleTopQuartile', 'value': 'FemaleTopQuartile'}
+            ],
+            value='FemaleTopQuartile')
+        ],),
     dcc.Graph(id='boxplot')
 ])
 
@@ -58,9 +72,11 @@ def update_histogram(selected_variable):
 
 @app.callback(
     Output('boxplot', 'figure'),
-    [Input('yaxis_selector', 'value')])
-def update_boxplot(yaxis_selector):
-    fig = px.box(df_visualization, x="Industry", y=yaxis_selector)
+    [Input('xaxis_selector', 'value'), Input('yaxis_selector', 'value')]
+)
+def update_boxplot(xaxis_selector, yaxis_selector):
+    fig = px.box(df_visualization, x=xaxis_selector, y=yaxis_selector)
+    fig.update_layout(yaxis=dict(range=[-100, 100]))
     return fig
 
 
