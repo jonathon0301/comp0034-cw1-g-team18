@@ -2,30 +2,29 @@ import plotly.express as px
 import pandas as pd
 
 # Create a pandas dataframe with the regions, their coordinates, GDP, population, and employment rate
-df = pd.DataFrame({'Region': ['North East', 'North West', 'Yorkshire and The Humber', 'East Midlands',
-                              'West Midlands', 'East of England', 'London', 'South East', 'South West'],
-                   'lat': [54.97, 53.48, 53.80, 52.95, 52.48, 52.24, 51.50, 51.04, 50.50],
-                   'lon': [-1.62, -2.24, -1.15, -1.20, -1.92, 0.39, -0.13, 0.46, -3.19],
-                   'GDP': [100, 200, 150, 175, 130, 180, 300, 250, 120],
-                   'Population': [500000, 600000, 700000, 400000, 600000, 800000, 9000000, 1000000, 200000],
-                   'Employment Rate': [0.6, 0.7, 0.75, 0.68, 0.65, 0.72, 0.78, 0.73, 0.62]})
-
+df_1 = pd.DataFrame({'Region': ['North East', 'North West', 'Yorkshire and The Humber', 'East Midlands',
+                                'West Midlands', 'East of England', 'London', 'South East', 'South West'],
+                     'lat': [54.97, 53.48, 53.80, 52.95, 52.48, 52.24, 51.50, 51.04, 50.50],
+                     'lon': [-1.62, -2.24, -1.15, -1.20, -1.92, 0.39, -0.13, 0.46, -3.19],
+                     'GDP': [100, 200, 150, 175, 130, 180, 300, 250, 120],
+                     'Population': [500000, 600000, 700000, 400000, 600000, 800000, 9000000, 1000000, 200000],
+                     'Employment Rate': [0.6, 0.7, 0.75, 0.68, 0.65, 0.72, 0.78, 0.73, 0.62]})
 
 # Create the scatter map
-fig = px.scatter_mapbox(df, lat='lat', lon='lon', hover_name='Region',
-                        color='Region', color_discrete_sequence=px.colors.sequential.Plasma,
-                        zoom=4.5, height=500)
+fig1 = px.scatter_mapbox(df_1, lat='lat', lon='lon', hover_name='Region',
+                         color='Region', color_discrete_sequence=px.colors.sequential.Plasma,
+                         zoom=4.5, height=500)
 
 # Add custom text to the hover information
-for i, trace in enumerate(fig.data):
-    customdata = [df.iloc[i]['GDP'], df.iloc[i]['Population'], df.iloc[i]['Employment Rate']]
-    print(f"customdata for region {df.iloc[i]['Region']}: {customdata}")
+for i, trace in enumerate(fig1.data):
+    customdata = [df_1.iloc[i]['GDP'], df_1.iloc[i]['Population'], df_1.iloc[i]['Employment Rate']]
+    print(f"customdata for region {df_1.iloc[i]['Region']}: {customdata}")
     trace.update(hovertemplate='GDP:' + str(customdata[0]) +
                                '<br>Population:' + str(customdata[1]) +
                                '<br>Employment Rate:' + str(customdata[2]),
                  customdata=customdata)
 
 # Update the layout
-fig.update_layout(mapbox_style='open-street-map')
-fig.update_layout(margin=dict(l=0, r=0, t=0, b=0))
-fig.show()
+fig1.update_layout(mapbox_style='open-street-map')
+fig1.update_layout(margin=dict(l=0, r=0, t=0, b=0))
+fig1.show()
