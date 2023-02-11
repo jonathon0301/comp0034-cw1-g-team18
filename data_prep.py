@@ -4,6 +4,7 @@ import pandas as pd
 df = pd.read_csv('src/gender_pay_gap_dash_app/data/gender_pay_gap_prepared.csv')
 print(df)
 
+# Prepare 3 datasets for drawing maps
 # Manually update UK region geographical locations
 regions = ['London', 'South East', 'East of England', 'North West',
            'West Midlands', 'Yorkshire and The Humber', 'East Midlands', 'South West',
@@ -27,7 +28,8 @@ print(df.isnull().sum())
 grouped = df.groupby('UK region')
 
 # Calculate results of diff hourly percent
-result_hourly_percent = grouped['DiffMeanHourlyPercent'].agg(['mean', 'median', lambda x: x.quantile(0.25), lambda x: x.quantile(0.75)])
+result_hourly_percent = grouped['DiffMeanHourlyPercent'].agg(['mean', 'median', lambda x: x.quantile(0.25),
+                                                              lambda x: x.quantile(0.75)])
 
 # Merge the grouped stats of hourly percent with original data
 result_hourly_percent = result_hourly_percent.reset_index()
@@ -41,14 +43,29 @@ print(result_hourly_percent)
 
 result_hourly_percent.to_csv('src/gender_pay_gap_dash_app/data/df_hourly_percent_on_region')
 
+# Repeat the process for DiffMeanBonusPercent & FemaleTopQuartile
+# Bonus
+result_bonus_percent = grouped['DiffMeanBonusPercent'].agg(['mean', 'median', lambda x: x.quantile(0.25),
+                                                            lambda x: x.quantile(0.75)])
+result_bonus_percent = result_bonus_percent.reset_index()
+result_bonus_percent = result_bonus_percent.merge(df[['UK region', 'Longitude', 'Latitude']].drop_duplicates(),
+                                                  on='UK region')
+result_bonus_percent.columns = ['UK region', 'mean_diff_bonus_percent', 'median_diff_bonus_percent',
+                                'lower_quartile_bonus_percent', 'upper_quartile_bonus_percent', 'Longitude',
+                                'Latitude']
+print(result_bonus_percent)
+result_bonus_percent.to_csv('src/gender_pay_gap_dash_app/data/df_bonus_percent_on_region')
 
-
-
-
-
-
-
-
-
+# FemaleTopQuartile
+result_female_top = grouped['FemaleTopQuartile'].agg(['mean', 'median', lambda x: x.quantile(0.25),
+                                                      lambda x: x.quantile(0.75)])
+result_female_top = result_female_top.reset_index()
+result_female_top = result_female_top.merge(df[['UK region', 'Longitude', 'Latitude']].drop_duplicates(),
+                                            on='UK region')
+result_female_top.columns = ['UK region', 'mean_female_top_percent', 'median_female_top_percent',
+                             'lower_quartile_female_top_percent', 'upper_quartile_female_top_percent', 'Longitude',
+                             'Latitude']
+print(result_female_top)
+result_female_top.to_csv('src/gender_pay_gap_dash_app/data/df_female_top_percent_on_region')
 
 
