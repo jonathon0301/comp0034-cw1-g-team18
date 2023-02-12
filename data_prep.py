@@ -68,4 +68,31 @@ result_female_top.columns = ['UK region', 'mean_female_top_percent', 'median_fem
 print(result_female_top)
 result_female_top.to_csv('src/gender_pay_gap_dash_app/data/df_female_top_percent_on_region')
 
-
+# Prepare datasets for drawing barchart
+# Group by UK region
+grouped_region = df.groupby('UK region')
+result_region_bar = grouped_region['DiffMeanHourlyPercent'].agg(['mean'])
+result_region_bar = result_region_bar.reset_index()
+result_region_bar = result_region_bar.merge(df[['UK region']].drop_duplicates(), on='UK region')
+result_region_bar.columns = ['UK region', 'mean_diff_hourly_percent']
+result_region_bar = result_region_bar.sort_values(by='mean_diff_hourly_percent', ascending=True)
+print(result_region_bar)
+result_region_bar.to_csv('src/gender_pay_gap_dash_app/data/df_bar_on_region.csv')
+# Group by EmployerSizeMedian
+grouped_size = df.groupby('EmployerSizeMedian')
+result_size_bar = grouped_size['DiffMeanHourlyPercent'].agg(['mean'])
+result_size_bar = result_size_bar.reset_index()
+result_size_bar = result_size_bar.merge(df[['EmployerSizeMedian']].drop_duplicates(), on='EmployerSizeMedian')
+result_size_bar.columns = ['EmployerSizeMedian', 'mean_diff_hourly_percent']
+result_size_bar = result_size_bar.sort_values(by='mean_diff_hourly_percent', ascending=True)
+print(result_size_bar)
+result_size_bar.to_csv('src/gender_pay_gap_dash_app/data/df_bar_on_size.csv')
+# Group by Industry
+grouped_industry = df.groupby('Industry')
+result_industry_bar = grouped_industry['DiffMeanHourlyPercent'].agg(['mean'])
+result_industry_bar = result_industry_bar.reset_index()
+result_industry_bar = result_industry_bar.merge(df[['Industry']].drop_duplicates(), on='Industry')
+result_industry_bar.columns = ['Industry', 'mean_diff_hourly_percent']
+result_industry_bar = result_industry_bar.sort_values(by='mean_diff_hourly_percent', ascending=True)
+print(result_industry_bar)
+result_industry_bar.to_csv('src/gender_pay_gap_dash_app/data/df_bar_on_industry.csv')
