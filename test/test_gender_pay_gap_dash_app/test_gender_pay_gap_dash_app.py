@@ -21,16 +21,16 @@ def test_click_elements(driver):
         fruiti.click()
 
     driver.find_element(By.CSS_SELECTOR, '#xaxis_selector').click()
-    for xaxis_selector in range(1, 4):
+    for x_axis_selector in range(1, 4):
         time.sleep(2)
-        a = '.VirtualizedSelectOption:nth-child({})'.format(xaxis_selector)
-        driver.find_element(By.CSS_SELECTOR, a).click()
+        x_axis = '.VirtualizedSelectOption:nth-child({})'.format(x_axis_selector)
+        driver.find_element(By.CSS_SELECTOR, x_axis).click()
         time.sleep(2)
         driver.find_element(By.CSS_SELECTOR, '#yaxis_selector').click()
-        for yaxis_selector in range(1, 4):
+        for y_axis_selector in range(1, 4):
             time.sleep(2)
-            b = '.VirtualizedSelectOption:nth-child({})'.format(yaxis_selector)
-            driver.find_element(By.CSS_SELECTOR, b).click()
+            y_axis = '.VirtualizedSelectOption:nth-child({})'.format(y_axis_selector)
+            driver.find_element(By.CSS_SELECTOR, y_axis).click()
             time.sleep(2)
             driver.find_element(By.CSS_SELECTOR, '#yaxis_selector').click()
         time.sleep(2)
@@ -39,15 +39,15 @@ def test_click_elements(driver):
     driver.find_element(By.CSS_SELECTOR, '#map_selector').click()
     for map_selector in range(1, 4):
         time.sleep(2)
-        c = '.VirtualizedSelectOption:nth-child({})'.format(map_selector)
-        driver.find_element(By.CSS_SELECTOR, c).click()
+        map = '.VirtualizedSelectOption:nth-child({})'.format(map_selector)
+        driver.find_element(By.CSS_SELECTOR, map).click()
         time.sleep(2)
         driver.find_element(By.CSS_SELECTOR, '#map_selector').click()
 
     driver.find_element(By.CSS_SELECTOR, '#bar_selector').click()
     for bar_selector in range(1, 4):
         time.sleep(2)
-        d = '.VirtualizedSelectOption:nth-child({})'.format(bar_selector)
-        driver.find_element(By.CSS_SELECTOR, d).click()
+        bar = '.VirtualizedSelectOption:nth-child({})'.format(bar_selector)
+        driver.find_element(By.CSS_SELECTOR, bar).click()
         time.sleep(2)
         driver.find_element(By.CSS_SELECTOR, '#bar_selector').click()
