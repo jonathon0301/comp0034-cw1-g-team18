@@ -114,3 +114,5 @@ def test_bar_dropdown(driver):
     assert (
             "Region" in driver.find_element(By.CSS_SELECTOR, '#bar_selector').text
     )
+
+
