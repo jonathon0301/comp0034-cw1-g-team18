@@ -1,19 +1,13 @@
 import time
-from basepage import BasePage
-from selenium import webdriver
 from selenium.webdriver.common.by import By
-import pytest
-
-
-@pytest.fixture
-def driver():
-    driver = BasePage(
-        webdriver.Chrome(executable_path='/comp0034-cw1-g-team18/test/chromedriver_mac_arm64/chromedriver'))
-    yield driver
-    driver.quit()
 
 
 def test_click_elements(driver):
+'''
+GIVEN the dash created in gender_pay_gap_dash_app.py is opened
+WHEN it passes test_click_elements function
+THEN Selenium will test the app automatically by clicking every selector in sequence
+'''
     driver.get("http://localhost:8050/")
     time.sleep(15)
     fruit_s = driver.find_elements(By.CSS_SELECTOR, "#histogram-selector label input")
