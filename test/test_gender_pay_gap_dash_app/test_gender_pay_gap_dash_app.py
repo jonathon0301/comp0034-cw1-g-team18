@@ -3,11 +3,11 @@ from selenium.webdriver.common.by import By
 
 
 def test_click_elements(driver):
-'''
-GIVEN the dash created in gender_pay_gap_dash_app.py is opened
-WHEN it passes test_click_elements function
-THEN Selenium will test the app automatically by clicking every selector in sequence
-'''
+    """
+    GIVEN the dash created in gender_pay_gap_dash_app.py is opened
+    WHEN it passes test_click_elements function
+    THEN Selenium will test the app automatically by clicking every selector in sequence
+    """
     driver.get("http://localhost:8050/")
     time.sleep(15)
     fruit_s = driver.find_elements(By.CSS_SELECTOR, "#histogram-selector label input")
