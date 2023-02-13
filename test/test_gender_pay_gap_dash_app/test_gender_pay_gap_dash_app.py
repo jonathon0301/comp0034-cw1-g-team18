@@ -107,11 +107,11 @@ def test_bar_dropdown(driver):
     """
     GIVEN the Dash app is running
     WHEN the home page has loaded
-    THEN 'Industry' should be the default at dropdown box selector of barchart
+    THEN 'Region' should be the default at dropdown box selector of barchart
     """
     driver.get("http://localhost:8050/")
     time.sleep(15)
     driver.implicitly_wait(15)
     assert (
-            "Industry" in driver.find_element(By.CSS_SELECTOR, '#bar_selector').text
+            "Region" in driver.find_element(By.CSS_SELECTOR, '#bar_selector').text
     )
