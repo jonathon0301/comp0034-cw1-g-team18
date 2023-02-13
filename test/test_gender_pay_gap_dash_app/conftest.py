@@ -2,6 +2,7 @@ import pytest
 from basepage import BasePage
 from selenium import webdriver
 
+
 @pytest.fixture
 def driver():
     driver = BasePage(

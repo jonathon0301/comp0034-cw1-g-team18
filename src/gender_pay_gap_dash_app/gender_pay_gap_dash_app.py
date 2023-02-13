@@ -3,6 +3,7 @@ from dash import html, dcc, Dash
 from dash.dependencies import Input, Output
 import pandas as pd
 
+
 # Import datasets
 df_visualization = pd.read_csv('data/gender_pay_gap_prepared.csv')
 df_visualization['EmployerSizeMedian'] = df_visualization['EmployerSizeMedian'].astype(str)
