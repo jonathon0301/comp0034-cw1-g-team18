@@ -21,15 +21,15 @@ def test_click_elements(driver):
         fruiti.click()
 
     driver.find_element(By.CSS_SELECTOR, '#xaxis_selector').click()
-    for i in range(1, 4):
+    for xaxis_selector in range(1, 4):
         time.sleep(2)
-        a = '.VirtualizedSelectOption:nth-child({})'.format(i)
+        a = '.VirtualizedSelectOption:nth-child({})'.format(xaxis_selector)
         driver.find_element(By.CSS_SELECTOR, a).click()
         time.sleep(2)
         driver.find_element(By.CSS_SELECTOR, '#yaxis_selector').click()
-        for j in range(1, 4):
+        for yaxis_selector in range(1, 4):
             time.sleep(2)
-            b = '.VirtualizedSelectOption:nth-child({})'.format(j)
+            b = '.VirtualizedSelectOption:nth-child({})'.format(yaxis_selector)
             driver.find_element(By.CSS_SELECTOR, b).click()
             time.sleep(2)
             driver.find_element(By.CSS_SELECTOR, '#yaxis_selector').click()
@@ -37,17 +37,17 @@ def test_click_elements(driver):
         driver.find_element(By.CSS_SELECTOR, '#xaxis_selector').click()
 
     driver.find_element(By.CSS_SELECTOR, '#map_selector').click()
-    for c1 in range(1, 4):
+    for map_selector in range(1, 4):
         time.sleep(2)
-        c = '.VirtualizedSelectOption:nth-child({})'.format(c1)
+        c = '.VirtualizedSelectOption:nth-child({})'.format(map_selector)
         driver.find_element(By.CSS_SELECTOR, c).click()
         time.sleep(2)
         driver.find_element(By.CSS_SELECTOR, '#map_selector').click()
 
     driver.find_element(By.CSS_SELECTOR, '#bar_selector').click()
-    for d1 in range(1, 4):
+    for bar_selector in range(1, 4):
         time.sleep(2)
-        d = '.VirtualizedSelectOption:nth-child({})'.format(d1)
+        d = '.VirtualizedSelectOption:nth-child({})'.format(bar_selector)
         driver.find_element(By.CSS_SELECTOR, d).click()
         time.sleep(2)
         driver.find_element(By.CSS_SELECTOR, '#bar_selector').click()
