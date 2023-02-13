@@ -1,5 +1,4 @@
 import time
-from basepage import BasePage
 from selenium.webdriver.common.by import By
 
 
