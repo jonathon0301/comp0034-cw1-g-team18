@@ -35,20 +35,10 @@ jobs:
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
         
-    - name: pytester-cov
-     # You may pin to the exact commit or the version.
-      # uses: programmingwithalex/pytester-cov@6ce63dd8e8f48dd07095d098db7375bb0e4ffea8
-      uses: programmingwithalex/pytester-cov@v1.2.4
+    - name: pytest-cov
+      # You may pin to the exact commit or the version.
+      # uses: lpenz/ghaction-pytest-cov@e7d3d83610d0e4a25353bc80198ff3dc47cfe114
+      uses: lpenz/ghaction-pytest-cov@v1
       with:
-        # root directory to recursively search for .py files
-        pytest-root-dir: # optional, default is .
-        # directory with pytest tests. if left empty will identify test(s) dir by default
-        pytest-tests-dir: # optional, default is 
-        # list of directories and/or files to ignore
-        cov-omit-list: # optional, default is 
-        # requirements filepath for project
-        requirements-file: # optional, default is requirements.txt
-        # fail if any single file coverage is less than threshold
-        cov-threshold-single: # optional, default is 0
-        # fail if the total coverage is less than threshold
-        cov-threshold-total: # optional, default is 0
+        # Run pytest in this directory
+        working-directory: comp0034-cw1-g-team18 # optional, default is .
