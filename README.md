@@ -13,14 +13,31 @@ the team in COMP0035 last term. These two files are used to help understand the 
 the chromedriver is downloaded to [chromedriver_mac_arm64](test/chromedriver_mac_arm64) directory under [test](test) 
 folder. You may need to execute it first before going to testing.
 
-# Visualisation design
+# 1. Visualisation design
 
-Add evidence here.
 
-# Dash app
 
-Add any notes here (optional).
+# 2. Dash app
 
-# Testing
+The code for the Dash app can be found at [gender_pay_gap_dash_app.py](src/gender_pay_gap_dash_app/gender_pay_gap_dash_app.py).
+
+In order to make the app look more aesthetically pleasing, a CSS [stylesheet](src/gender_pay_gap_dash_app/assets/style.css) 
+can be found under [assets](src/gender_pay_gap_dash_app/assets) directory in [src](src). It has managed to change the theme 
+color and make visualizations in a card style.
+
+Since visualizations require more complex data structure than we thought before during data processing stage at COMP0035
+, further data processing was implemented for this coursework. Code for data processing can be looked at [data_prep.py](data_prep.py)
+. Meanwhile, we found it easier to split dataframes that we need when generating visualizations, therefore, we have used 
+multiple datasets which can be found in [data](src/gender_pay_gap_dash_app/data) directory under src/gender_pay_gap_dash_app 
+directory. The dataset we prepared in COMP0035 is [gender_pay_gap_prepared.csv](src/gender_pay_gap_dash_app/data/gender_pay_gap_prepared.csv) 
+while all the remaining spreadsheets are created at this time.
+
+Generally, the APP has met requirements that we intended to achieve as a dashboard showing general information of UK 
+gender pay gap situations and target users can obtain information to answers their problems. While the map graphs would 
+be better with a Choropleth map, we failed to find a proper geojson of UK, thus were unable to create one. Therefore, we 
+have used a scatter_mapbox as a substitute by manually inputting the geographical coordinates (longitude and latitude) of 
+each region (shown in [data_prep.py](data_prep.py).
+
+# 3. Testing
 
 Add evidence here (groups).
