@@ -1,22 +1,17 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-c66648af7eb3fe8bc4f294546bfd86ef473780cde1dea487d3c4ff354943c9ae.svg)](https://classroom.github.com/online_ide?assignment_repo_id=9742059&assignment_repo_type=AssignmentRepo)
-# COMP0034 Coursework 1 template repository
+# COMP0034 Coursework 1
 
-To set up your project:
-
-1. Clone this repository in your IDE (e.g. PyCharm, Visual Studio Code) from GitHub. Follow the help in your IDE
-   e.g. [clone a GitHub repo in PyCharm.](https://www.jetbrains.com/help/pycharm/manage-projects-hosted-on-github.html#clone-from-GitHub)
-2. Create and then activate a virtual environment (venv). Use the instructions for your IDE
-   or [navigate to your project directory and use python.](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/)
-3. Install the requirements from requirements.txt. Use the instructions for your IDE
-   or [the pip documentation](https://pip.pypa.io/en/latest/user_guide/#requirements-files).
-4. Edit .gitignore to add any config files and folders for your IDE. 
-
+This repository is created for COMP0034 Coursework 1 done by Team 18. This README.md will provide a guidance for readers
+ / markers to facilitate understanding the contents.
 
 # Set-up instructions
 
-Add any instructions here for the markers on how to setup and run your Dash app.
-
-Add the URL to your GitHub repo here e.g. https://github.com/ucl-comp0035/comp0034-cw1-g-team18.git
+1. URL to your GitHub repo: https://github.com/ucl-comp0035/comp0034-cw1-g-team18.git;
+2. Please install all necessary Python packages listed in [requirements.txt](requirements.txt);
+3. The [requirements.pdf](requirements.pdf) and [design.pdf](design.pdf) documents are collected from previous work of 
+the team in COMP0035 last term. These two files are used to help understand the context and initial design of the Web APP;
+4. Browser used to test the Dash created in this coursework is Chrome 109 version and our group members use Mac OS, 
+the chromedriver is downloaded to [chromedriver_mac_arm64](test/chromedriver_mac_arm64) directory under [test](test) 
+folder. You may need to execute it first before going to testing.
 
 # Visualisation design
 
