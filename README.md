@@ -7,11 +7,14 @@ This repository is created for COMP0034 Coursework 1 done by Team 18. This READM
 
 1. URL to your GitHub repo: https://github.com/ucl-comp0035/comp0034-cw1-g-team18.git;
 2. Please install all necessary Python packages listed in [requirements.txt](requirements.txt);
-3. The [requirements.pdf](requirements.pdf) and [design.pdf](design.pdf) documents are collected from previous work of 
-the team in COMP0035 last term. These two files are used to help understand the context and initial design of the Web APP;
+3. The [business-need.pdf](business-need.pdf), [requirements.pdf](requirements.pdf) and [design.pdf](design.pdf) documents 
+are collected from previous work of the team in COMP0035 last term. These files are used to help understand the context 
+and initial design of the Web APP;
 4. Browser used to test the Dash created in this coursework is Chrome 109 version and our group members use Mac OS, 
 the chromedriver is downloaded to [chromedriver_mac_arm64](test/chromedriver_mac_arm64) directory under [test](test) 
-folder. You may need to execute it first before going to testing.
+folder. You may need to execute it first before going to testing;
+5. The CI workflow was implemented during a early stage of the project but failed attempts were deleted, you may find 
+evidences through commit history to show we have regularly used CI approaches.
 
 # 1. Visualisation design
 
@@ -40,4 +43,4 @@ each region (shown in [data_prep.py](data_prep.py).
 
 # 3. Testing
 
-Add evidence here (groups).
+
