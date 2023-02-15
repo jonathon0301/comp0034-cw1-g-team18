@@ -18,7 +18,7 @@ evidences through commit history to show we have regularly used CI approaches.
 
 # 1. Visualisation design
 
-
+See [VisualizationDesign.pdf](VisualizationDesign.pdf)
 
 # 2. Dash app
 
